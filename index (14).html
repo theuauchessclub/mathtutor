@@ -3,23 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Up and Up Educational Services — Virtual Math Tutoring</title>
+<title>Up And Up Educational Services — Virtual Math Tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f7f8fb;
-    --ink:#101827;
-    --navy:#0d1526;
-    --navy-2:#131e35;
-    --accent:#4f6df5;
-    --accent-2:#8b5cf6;
-    --teal:#2dd4bf;
+    --bg:#F7F5F0;
+    --ink:#1F2937;
+    --navy:#0B1E3A;
+    --navy-2:#122B4F;
+    --accent:#0E9F6E;
+    --accent-2:#134E4A;
+    --teal:#34D399;
+    --amber:#F59E0B;
+    --amber-deep:#D97706;
+    --amber-ink:#3A2705;
+    --good-bg:#D1FAE5;
     --muted:#5b6472;
     --line:#e4e7ee;
     --card:#ffffff;
-    --grad:linear-gradient(120deg,#4f6df5,#8b5cf6);
+    --grad:linear-gradient(120deg,#0E9F6E,#134E4A);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -64,8 +68,8 @@
   .hero::before{
     content:"";position:absolute;inset:0;
     background:
-      radial-gradient(600px 300px at 85% 20%, rgba(139,92,246,0.22), transparent 70%),
-      radial-gradient(500px 300px at 10% 90%, rgba(79,109,245,0.18), transparent 70%);
+      radial-gradient(600px 300px at 85% 20%, rgba(52,211,153,0.16), transparent 70%),
+      radial-gradient(500px 300px at 10% 90%, rgba(14,159,110,0.14), transparent 70%);
     pointer-events:none;
   }
   .hero .container{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;position:relative;}
@@ -84,7 +88,7 @@
     background:var(--grad);color:#fff;
     padding:14px 28px;border-radius:99px;font-weight:600;text-decoration:none;
     font-size:0.98rem;display:inline-block;
-    box-shadow:0 8px 24px -8px rgba(99,102,241,0.6);
+    box-shadow:0 8px 24px -8px rgba(217,119,6,0.45);
   }
   .btn-secondary{
     border:1px solid rgba(255,255,255,0.25);color:#fff;
@@ -128,19 +132,27 @@
 
   /* ---------- ABOUT ---------- */
   #about{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .about-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:start;}
-  .founder-mark{
-    width:130px;height:130px;border-radius:24px;background:var(--grad);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;gap:10px;
+  .about-grid{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:start;}
+  .photo-wrap{
+    width:100%;border-radius:20px;overflow:hidden;
+    position:relative;
+    box-shadow:0 16px 40px -16px rgba(14,159,110,0.28);
   }
-  .founder-mark .init{font-size:2rem;line-height:1;}
-  .founder-mark .sub{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.85;margin-top:6px;}
+  .photo-wrap img{width:100%;height:auto;display:block;}
+  .photo-wrap::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:40%;
+    background:linear-gradient(to top,rgba(13,21,38,0.5),transparent);
+    pointer-events:none;
+  }
   .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
   .badge{
     background:var(--bg);border:1px solid var(--line);
     padding:6px 14px;border-radius:99px;font-size:0.8rem;font-weight:500;
     color:var(--ink);
+  }
+  @media (max-width:840px){
+    .about-grid{grid-template-columns:1fr;}
+    .photo-wrap{max-width:300px;}
   }
 
   /* ---------- HOW IT WORKS ---------- */
@@ -163,7 +175,7 @@
   .pricing-card{
     background:var(--card);border:1px solid var(--line);
     border-radius:20px;padding:38px;max-width:540px;
-    box-shadow:0 20px 44px -24px rgba(79,109,245,0.28);
+    box-shadow:0 20px 44px -24px rgba(14,159,110,0.22);
     position:relative;
   }
   .pricing-card::before{
@@ -215,7 +227,7 @@
   }
   .register-wrap::before{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(500px 260px at 90% 10%, rgba(139,92,246,0.25), transparent 70%);
+    background:radial-gradient(500px 260px at 90% 10%, rgba(52,211,153,0.18), transparent 70%);
     pointer-events:none;
   }
   .register-wrap > *{position:relative;}
@@ -235,7 +247,7 @@
     grid-column:1/-1;background:var(--grad);color:#fff;border:none;
     padding:16px;border-radius:99px;font-weight:600;font-size:1rem;cursor:pointer;margin-top:6px;
     font-family:'Inter',sans-serif;
-    box-shadow:0 8px 24px -8px rgba(99,102,241,0.55);
+    box-shadow:0 8px 24px -8px rgba(217,119,6,0.4);
   }
   #form-msg{grid-column:1/-1;font-size:0.88rem;font-weight:500;color:var(--teal);}
 
@@ -247,18 +259,39 @@
   .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.92rem;color:#fff;}
   .cal-nav{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fff;border-radius:10px;width:30px;height:30px;cursor:pointer;padding:0;font-size:0.9rem;}
   .cal-nav:disabled{opacity:0.3;cursor:not-allowed;}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
   #cal-daynames{margin-bottom:8px;font-size:0.68rem;font-weight:600;letter-spacing:0.05em;color:rgba(255,255,255,0.45);text-align:center;text-transform:uppercase;}
   .cal-day{
-    aspect-ratio:1;display:flex;align-items:center;justify-content:center;
-    border-radius:10px;font-size:0.85rem;cursor:pointer;color:#fff;
-    background:rgba(255,255,255,0.04);
+    display:flex;flex-direction:column;gap:2px;padding:4px 3px;
+    border-radius:9px;color:#fff;background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
   }
-  .cal-day.blank{visibility:hidden;cursor:default;}
-  .cal-day.disabled{color:rgba(255,255,255,0.2);cursor:not-allowed;background:none;}
-  .cal-day.available:hover{background:rgba(79,109,245,0.35);}
-  .cal-day.selected{background:var(--grad);color:#fff;font-weight:600;}
-  .selected-date-label{margin-top:10px;font-size:0.85rem;font-weight:500;color:var(--teal);min-height:1.2em;}
+  .cal-daynum{font-size:0.7rem;font-weight:600;text-align:center;opacity:.75;}
+  /* weekends keep their box but hold no times */
+  .cal-day.noslots{justify-content:flex-start;}
+  .cal-day.blank{visibility:hidden;}
+  .cal-day.disabled{background:none;border-color:transparent;}
+  .cal-day.disabled .cal-daynum{color:rgba(255,255,255,0.18);}
+  /* one tappable time chip per slot, printed right on the date */
+  .cal-slot{
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.6rem;font-weight:600;line-height:1;padding:4px 0;
+    border-radius:5px;border:1px solid rgba(255,255,255,0.16);
+    background:rgba(255,255,255,0.06);color:#fff;cursor:pointer;
+    font-family:'Inter',sans-serif;width:100%;letter-spacing:-0.02em;
+  }
+  .cal-slot:hover{background:rgba(14,159,110,0.35);border-color:rgba(14,159,110,0.6);}
+  .cal-slot.added{background:rgba(52,211,153,0.22);border-color:rgba(52,211,153,0.65);color:#6ee7b7;}
+  .cal-slot.added:hover{background:rgba(248,113,113,0.22);border-color:rgba(248,113,113,0.6);color:#fca5a5;}
+  .cal-slot.taken{opacity:.28;cursor:not-allowed;text-decoration:line-through;}
+  .cal-slot.taken:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.16);}
+  .cal-slot:disabled{cursor:not-allowed;}
+  @media(max-width:560px){
+    .cal-grid{gap:3px;}
+    .cal-slot{font-size:0.52rem;padding:3px 0;border-radius:4px;}
+    .cal-day{padding:3px 2px;gap:2px;}
+    .cal-daynum{font-size:0.62rem;}
+  }
 
   footer{padding:40px 0;color:var(--muted);font-size:0.85rem;text-align:center;}
 
@@ -271,6 +304,22 @@
     .about-grid{grid-template-columns:1fr;}
     .register-wrap{padding:32px 22px;}
   }
+
+  /* ===== ASCENT palette overrides ===== */
+  .nav-cta,.btn-primary,form button[type=submit],.btn{
+    background:linear-gradient(120deg,#F59E0B,#D97706);
+    color:var(--amber-ink);
+    font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(217,119,6,0.5);
+  }
+  .nav-cta:hover,.btn-primary:hover,form button[type=submit]:hover,.btn:hover{filter:brightness(1.05);}
+  .btn{font-family:'Space Grotesk',sans-serif;font-weight:600;border:none;border-radius:99px;cursor:pointer;display:inline-block;}
+  .eyebrow{color:var(--teal);border-color:rgba(52,211,153,0.4);}
+  .promo-row button{background:var(--navy);}
+  .gc-stats .gc-stat strong{color:var(--teal);}
+  .section-label{color:var(--accent);}
+  .step .num{background:var(--grad);}
+  .choice.picked{border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -281,7 +330,7 @@
       <div class="brand-mark">
         <svg viewBox="0 0 24 24" fill="none"><path d="M4 18 L10 11 L14 14 L20 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6 H20 V11" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      Up and Up <span>&nbsp;Educational Services</span>
+      Up And Up <span>&nbsp;Educational Services</span>
     </div>
     <a href="#register" class="nav-cta">Book Now</a>
   </div>
@@ -290,9 +339,9 @@
 <header class="hero">
   <div class="container">
     <div>
-      <div class="eyebrow">Grades 6–11 · Middle School Math through Geometry</div>
-      <h1>Math tutoring that moves your child <em>up and up.</em></h1>
-      <p class="lead">One-on-one virtual sessions over Google Meet with a veteran classroom teacher — focused on exactly what your child is stuck on, from middle school math through Geometry.</p>
+      <div class="eyebrow">1 of only 8 D.C. BrightSpot Fellows · Grades 6–10</div>
+      <h1>Math tutoring that keeps your child <em>constantly elevating.</em></h1>
+      <p class="lead">One-on-one virtual sessions over Google Meet with veteran classroom teacher Brother Truth — focused on exactly what your child is stuck on, from middle school math through Geometry. Always on the up and up.</p>
       <div class="btn-row">
         <a href="#pricing" class="btn-primary">See Pricing</a>
         <a href="#how-it-works" class="btn-secondary">How It Works</a>
@@ -305,8 +354,8 @@
         <svg id="growth-svg" viewBox="0 0 300 160" width="100%">
           <defs>
             <linearGradient id="gradLine" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#4f6df5"/>
-              <stop offset="1" stop-color="#8b5cf6"/>
+              <stop offset="0" stop-color="#34D399"/>
+              <stop offset="1" stop-color="#0E9F6E"/>
             </linearGradient>
           </defs>
           <line class="grid" x1="0" y1="40" x2="300" y2="40"/>
@@ -325,22 +374,40 @@
   </div>
 </header>
 
+<div style="background:var(--navy-2);border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="container" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;padding:18px 24px;color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:600;text-align:center;">
+    <span>20+ Years Teaching</span>
+    <span style="color:var(--teal)">•</span>
+    <span>Ron Brown College Prep</span>
+    <span style="color:var(--teal)">•</span>
+    <span>Morgan State Graduate</span>
+    <span style="color:var(--teal)">•</span>
+    <span>EmpowerK12 BrightSpot Fellow</span>
+  </div>
+</div>
+
 <section id="about">
   <div class="container about-grid">
+    <div class="photo-wrap">
+      <img src="teaching.jpg" alt="Brother Truth working with students in the classroom">
+    </div>
     <div>
       <div class="section-label">About Your Tutor</div>
       <h2>Meet Brother Truth</h2>
+      <p class="lead-muted" style="margin-bottom:4px;font-weight:700;color:var(--ink);">
+        Founder, Up And Up Educational Services
+      </p>
       <p class="lead-muted" style="margin-bottom:14px;">
-        Brother Truth is a veteran mathematics educator with more than two decades of classroom experience across Washington, D.C. and Maryland public schools. He currently teaches Geometry and Algebra I full-time at a D.C. public high school, and was selected for an inaugural fellowship cohort honoring top math educators in the District for measurable student achievement.
+        Brother Truth is a veteran mathematics educator with more than two decades of classroom experience across Washington, D.C. and Maryland public schools. He currently teaches Geometry and Algebra I full-time at Ron Brown College Preparatory High School — the only all-male public high school in the District — and was selected for EmpowerK12's inaugural BrightSpot Fellowship — a cohort of just eight teachers across the District recognized for measurable student achievement. Of those eight, four were chosen from D.C. Public Charter Schools and four from D.C. Public Schools. Brother Truth was one of only two high school teachers selected.
       </p>
       <p class="lead-muted" style="margin-bottom:14px;">
         A graduate of Morgan State University, he has taught in D.C. Public Schools, public charter schools, and Prince George's County Public Schools — reaching students at every level of confidence, from the ones who love math to the ones who dread it. Beyond the classroom, he has spent years running youth enrichment programs across the region, building a teaching style that meets students where they are and moves them forward.
       </p>
       <p class="lead-muted" style="margin-bottom:0;">
-        Up and Up Educational Services brings that same classroom-tested instruction into focused, one-on-one virtual sessions for students in grades 6 through 11.
+        Up And Up Educational Services brings that same classroom-tested instruction into focused, one-on-one virtual sessions for students in grades 6 through 10.
       </p>
       <div class="badge-row">
-        <div class="badge">Grades 6–11</div>
+        <div class="badge">Grades 6–10</div>
         <div class="badge">Middle School Math</div>
         <div class="badge">Pre-Algebra</div>
         <div class="badge">Algebra I</div>
@@ -354,27 +421,32 @@
   <div class="container">
     <div class="section-label">The Process</div>
     <h2>How it works</h2>
-    <p class="lead-muted">Four steps, start to finish.</p>
-    <div class="steps">
+    <p class="lead-muted">Five steps, start to finish.</p>
+    <div class="steps" style="grid-template-columns:repeat(5,1fr);">
       <div class="step">
         <div class="num">1</div>
         <h3>Register</h3>
-        <p>Tell us your child's grade level and what topic they're stuck on.</p>
+        <p>Tell us your child's grade level and what topic they need help with.</p>
       </div>
       <div class="step">
         <div class="num">2</div>
-        <h3>Choose your package</h3>
-        <p>Every plan starts with a 4-session minimum, paid securely online.</p>
+        <h3>Placement Test</h3>
+        <p>Your child takes a 30-question readiness assessment so we know exactly where to start.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
-        <h3>Pick your times</h3>
-        <p>Book open weekday slots between 4 and 7 PM — no back-and-forth emails.</p>
+        <h3>Custom Plan</h3>
+        <p>Based on the assessment results, we build a tutoring schedule and outline tailored to your child's needs — 1 to 3 sessions per week.</p>
       </div>
       <div class="step">
         <div class="num">4</div>
+        <h3>Book and Pay</h3>
+        <p>Pick your times (4-session minimum), then pay for your first two sessions. Everything after that is billed two sessions at a time, as you go.</p>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
         <h3>Meet on Google Meet</h3>
-        <p>Your link is generated automatically and emailed before each session.</p>
+        <p>A unique Meet link is generated and emailed to both the parent and student before each session.</p>
       </div>
     </div>
   </div>
@@ -384,7 +456,7 @@
   <div class="container">
     <div class="section-label">Pricing</div>
     <h2>Simple, one-rate pricing.</h2>
-    <p class="lead-muted">No tiers to compare. Every package starts with a 4-session minimum — enough to actually close a gap in one topic, not just sample a session.</p>
+    <p class="lead-muted">No tiers to compare. Book 4 sessions or more, and pay two at a time as you go — never more than two sessions in advance. Handled through PayPal, and we accept all major credit cards.</p>
 
     <div class="pricing-card">
       <div class="price-row">
@@ -393,11 +465,12 @@
         <span class="price-was" id="was-price" style="display:none;">$65</span>
       </div>
       <ul>
-        <li>4-session minimum package (typically over 2 weeks)</li>
+        <li>4-session minimum — add as many as you need, up to 12</li>
         <li>60-minute 1-on-1 sessions, 100% virtual on Google Meet</li>
         <li>Monday–Friday, 4:00–7:00 PM — calendar booking synced automatically</li>
-        <li>Grades 6–11 · middle school math through Geometry</li>
-        <li>Split into 2 payments — no need to pay for all 4 sessions at once</li>
+        <li>Grades 6–10 · middle school math through Geometry</li>
+        <li>Billed $130 at a time (2 sessions) — never pay weeks ahead</li>
+        <li>Invoiced through PayPal · Visa, Mastercard, Amex, Discover accepted</li>
       </ul>
 
       <div class="promo-row">
@@ -408,16 +481,16 @@
 
       <div class="total-line" style="border-top:none;padding-top:0;flex-direction:column;gap:8px;align-items:stretch;">
         <div style="display:flex;justify-content:space-between;font-weight:400;color:var(--muted);font-size:0.92rem;">
-          <span>Payment 1 — due at booking (sessions 1 &amp; 2)</span>
+          <span>Due today — sessions 1 &amp; 2</span>
           <span id="payment1-display">$130</span>
         </div>
         <div style="display:flex;justify-content:space-between;font-weight:400;color:var(--muted);font-size:0.92rem;">
-          <span>Payment 2 — auto-charged before session 3</span>
+          <span>Then $130 after every 2 sessions</span>
           <span id="payment2-display">$130</span>
         </div>
       </div>
       <div class="total-line">
-        <span>4-session package total</span>
+        <span>Package total (paid over time)</span>
         <span id="total-display">$260</span>
       </div>
     </div>
@@ -431,8 +504,8 @@
     <p class="lead-muted"></p>
     <div class="policy-grid">
       <div class="policy-card">
-        <h3>The 4-session minimum</h3>
-        <p>Every sign-up commits to 4 sessions, billed in two payments — sessions 1 &amp; 2 at booking, sessions 3 &amp; 4 auto-charged before session 3. This protects the calendar time reserved for your child and gives enough runway to actually make progress on a topic — even if it started as "just one section of homework."</p>
+        <h3>The 4-session minimum &amp; how billing works</h3>
+        <p>Every sign-up commits to at least 4 sessions — enough runway to actually make progress on a topic, even if it started as "just one section of homework." You are never asked to pay for all of them up front. You pay $130 for your first two sessions when you book, and another $130 after every two sessions from there. A package ending on an odd session finishes with a single $65 payment. If your child stops partway through, you have paid only for the sessions already reserved and delivered.</p>
       </div>
       <div class="policy-card">
         <h3>Rescheduling</h3>
@@ -440,11 +513,11 @@
       </div>
       <div class="policy-card">
         <h3>Missed sessions</h3>
-        <p>Sessions missed without 24 hours' notice are counted toward your 4-session minimum and are not refunded, since that time was held exclusively for your child.</p>
+        <p>Sessions missed without 24 hours' notice count toward your booked sessions and are billed as normal, since that time was held exclusively for your child.</p>
       </div>
       <div class="policy-card">
         <h3>Virtual only</h3>
-        <p>All sessions take place over Google Meet. A unique meeting link is generated and emailed to you ahead of every booked session.</p>
+        <p>All sessions take place over Google Meet. A unique meeting link is generated and emailed to both the parent and the student (if a student email is provided) ahead of every booked session.</p>
       </div>
     </div>
   </div>
@@ -456,20 +529,30 @@
     <h2>Questions parents ask</h2>
     <details open>
       <summary>What if my child only needs help with one topic?</summary>
-      <p>That's the most common reason families sign up. The 4-session minimum gives enough time to actually close the gap on one unit or skill, rather than a single session that only scratches the surface.</p>
+      <p>That's the most common reason families sign up. The 4-session minimum gives enough time to actually close the gap on one unit or skill, rather than a single session that only scratches the surface — and you pay for it two sessions at a time, so it isn't a large commitment up front.</p>
     </details>
     <details>
       <summary>What grade levels do you cover?</summary>
-      <p>Grades 6 through 11 — from middle school math and Pre-Algebra through Algebra I and Geometry.</p>
+      <p>Grades 6 through 10 — from middle school math and Pre-Algebra through Algebra I and Geometry.</p>
     </details>
     <details>
       <summary>How does payment work?</summary>
-      <p>Your 4-session package is split into two payments: sessions 1 and 2 are paid when you book, and sessions 3 and 4 are automatically charged to the same card a few days before session 3. You won't need to do anything for the second payment — it's handled for you.</p>
+      <p>You pay as you go, two sessions at a time. $130 covers sessions 1 and 2 and is paid when you book. After session 2, the next $130 is charged for sessions 3 and 4 — and so on through your package. If you booked an odd number, the last payment is $65 for the final session. You can pay by card (charged automatically to the card you used at booking) or ask to be invoiced instead, with 14 days to pay. Handled through PayPal; Visa, Mastercard, Amex and Discover accepted, no PayPal account required.</p>
     </details>
     <details>
       <summary>How do we join the Google Meet?</summary>
-      <p>A unique Google Meet link is generated for each session and emailed to you in advance, tied to the time you book on the calendar.</p>
+      <p>A unique Google Meet link is generated for each session and emailed to both the parent and the student (if a student email is provided) in advance, tied to the time you book on the calendar.</p>
     </details>
+  </div>
+</section>
+
+<section id="assessment" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container" style="text-align:center;max-width:620px;">
+    <div style="display:inline-block;background:var(--good-bg);color:#065f46;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:5px 14px;margin-bottom:12px;">100% Free</div>
+    <h2>Take the Placement Test</h2>
+    <p class="lead-muted" style="margin:0 auto 14px;">Before tutoring begins, every student takes a free 30-question readiness assessment. The results tell us exactly where your child is strong and where they need support — and we use them to build a custom tutoring schedule and plan. No obligation, no payment required.</p>
+    <p class="lead-muted" style="margin:0 auto 24px;font-weight:600;color:var(--ink);">Available for students entering grades 6 through 10.</p>
+    <a href="placement.html" class="btn" style="text-decoration:none;display:inline-block;font-size:1.05rem;padding:16px 34px;">Take the Free Placement Test →</a>
   </div>
 </section>
 
@@ -478,15 +561,19 @@
     <div class="register-wrap">
       <div class="section-label">Get Started</div>
       <h2>Register for tutoring</h2>
-      <p class="lead-muted">Fill this out to book your calendar times. You'll pay for sessions 1 &amp; 2 to confirm your booking, and your card is authorized for a second automatic payment before session 3 — no need to pay for all 4 sessions at once.</p>
+      <p class="lead-muted">Fill this out to get started. After registration, your child will take a placement assessment and we'll build a custom tutoring plan based on the results. Google Meet links will be sent to both the parent and student email addresses.</p>
       <form onsubmit="return submitForm(event)">
         <div>
           <label>Parent Name</label>
           <input type="text" id="parent-name" placeholder="Jane Smith" required>
         </div>
         <div>
-          <label>Email</label>
+          <label>Parent Email</label>
           <input type="email" id="parent-email" placeholder="jane@email.com" required>
+        </div>
+        <div>
+          <label>Student Email <span style="font-weight:400;text-transform:none;letter-spacing:0;opacity:.6">(optional)</span></label>
+          <input type="email" id="student-email" placeholder="student@email.com">
         </div>
         <div>
           <label>Student's Grade Level</label>
@@ -497,7 +584,6 @@
             <option value="8">8th Grade</option>
             <option value="9">9th Grade</option>
             <option value="10">10th Grade</option>
-            <option value="11">11th Grade</option>
           </select>
         </div>
         <div>
@@ -517,7 +603,7 @@
         </div>
 
         <div class="full" id="calendar-field">
-          <label>Pick your 4 session slots (Monday–Friday)</label>
+          <label>Tap the times you want (4 minimum)</label>
           <div class="calendar-widget">
             <div class="cal-header">
               <button type="button" class="cal-nav" onclick="changeMonth(-1)">&larr;</button>
@@ -527,24 +613,11 @@
             <div class="cal-grid" id="cal-daynames"></div>
             <div class="cal-grid" id="cal-days"></div>
           </div>
-          <div id="selected-date-label" class="selected-date-label"></div>
-        </div>
-
-        <div>
-          <label>Session time</label>
-          <select id="time-slot">
-            <option value="">Select a time</option>
-            <option value="4:00–5:00 PM">4:00 – 5:00 PM</option>
-            <option value="5:00–6:00 PM">5:00 – 6:00 PM</option>
-            <option value="6:00–7:00 PM">6:00 – 7:00 PM</option>
-          </select>
-        </div>
-        <div style="display:flex;align-items:flex-end;">
-          <button type="button" id="add-session-btn" onclick="addSession()" style="width:100%;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:13px;border-radius:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">+ Add this session</button>
+          <p style="margin:10px 0 0;font-size:.76rem;opacity:.6;">Tap a time to add it. Tap again to remove.</p>
         </div>
 
         <div class="full">
-          <label>Your sessions (<span id="session-count">0</span>/4 selected)</label>
+          <label>Your cart (<span id="session-count">0</span> selected · 4 minimum)</label>
           <div id="session-list" style="display:flex;flex-direction:column;gap:8px;"></div>
         </div>
 
@@ -554,6 +627,8 @@
         </div>
 
         <button type="submit" id="submit-btn">Continue to Payment — <span id="pay-now-amount">$130</span> due today</button>
+        <button type="button" id="invoice-btn" style="margin-top:10px;width:100%;background:transparent;border:1.5px solid var(--line);color:inherit;padding:14px;border-radius:12px;font-weight:600;cursor:pointer;font-size:.95rem;">Invoice me instead — 14 days to pay</button>
+        <p style="margin:8px 0 0;font-size:.78rem;opacity:.7;text-align:center;">Your slots are held. You'll be invoiced $130 at a time, 14 days to pay.</p>
         <div id="form-msg"></div>
       </form>
     </div>
@@ -562,7 +637,7 @@
 
 <footer>
   <div class="container">
-    Up and Up Educational Services — Virtual Math Tutoring · Grades 6–11 · Questions? Reach out anytime.
+    Up And Up Educational Services — Virtual Math Tutoring · Grades 6–10 · Questions? Reach out anytime.
   </div>
 </footer>
 
@@ -570,15 +645,19 @@
   /* ================= BACKEND INTEGRATION ================= */
   const API_BASE = "https://otdyhyzghaohnhtwzkvu.supabase.co/functions/v1";
   const VALID_TIMES = ["4:00–5:00 PM", "5:00–6:00 PM", "6:00–7:00 PM"];
+  const BOOKING_HORIZON_MONTHS = 6;   // how far ahead parents may book
+  const MIN_SESSIONS = 4;
+  const MAX_SESSIONS = 12;
 
   let bookedSlots = new Set();      // "YYYY-MM-DD|time"
   let chosenSessions = [];          // [{date, time}]
-  let activeDate = null;
 
   async function loadAvailability(){
     try {
       const from = new Date().toISOString().slice(0,10);
-      const res = await fetch(`${API_BASE}/edu-availability?from=${from}&to=2026-12-31`);
+      const to = new Date(); to.setMonth(to.getMonth() + BOOKING_HORIZON_MONTHS);
+      const toIso = to.toISOString().slice(0,10);
+      const res = await fetch(`${API_BASE}/edu-availability?from=${from}&to=${toIso}`);
       const data = await res.json();
       bookedSlots = new Set((data.booked || []).map(b => b.session_date + "|" + b.session_time));
       renderCalendar();
@@ -600,9 +679,11 @@
   let viewMonth = today.getMonth();
 
   const MIN_MONTH_INDEX = today.getFullYear() * 12 + today.getMonth();
-  const MAX_MONTH_INDEX = 2026 * 12 + 11;
+  const _horizon = new Date(today.getFullYear(), today.getMonth() + BOOKING_HORIZON_MONTHS, 1);
+  const MAX_MONTH_INDEX = _horizon.getFullYear() * 12 + _horizon.getMonth();
 
   const dayNames = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+  const SLOT_LABELS = { "4:00\u20135:00 PM": "4", "5:00\u20136:00 PM": "5", "6:00\u20137:00 PM": "6" };
   const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
   function isoOf(date){
@@ -621,29 +702,57 @@
     const firstDay = new Date(viewYear, viewMonth, 1).getDay();
     const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
-    for(let i=0;i<firstDay;i++){
+    for (let i = 0; i < firstDay; i++) {
       const blank = document.createElement('div');
       blank.className = "cal-day blank";
       grid.appendChild(blank);
     }
 
-    for(let d=1; d<=daysInMonth; d++){
+    for (let d = 1; d <= daysInMonth; d++) {
       const date = new Date(viewYear, viewMonth, d);
       const iso = isoOf(date);
       const dow = date.getDay();
       const isWeekend = (dow === 0 || dow === 6);
       const isPast = date < today;
-      const fullyBooked = slotTakenCount(iso) >= VALID_TIMES.length;
-      const cell = document.createElement('div');
-      cell.textContent = d;
+      const bookable = !isWeekend && !isPast;
 
-      if(isWeekend || isPast || fullyBooked){
-        cell.className = "cal-day disabled";
-        if (fullyBooked && !isWeekend && !isPast) cell.title = "Fully booked";
-      } else {
-        cell.className = "cal-day available" + (activeDate === iso ? " selected" : "");
-        cell.onclick = () => selectDate(iso, cell);
+      const cell = document.createElement('div');
+      cell.className = "cal-day" + (bookable ? "" : " disabled noslots");
+
+      const num = document.createElement('div');
+      num.className = "cal-daynum";
+      num.textContent = d;
+      cell.appendChild(num);
+
+      // Times live inside the date box itself - one tap to add.
+      if (bookable) {
+        VALID_TIMES.forEach(function(t){
+          const chip = document.createElement('button');
+          chip.type = "button";
+          const short = SLOT_LABELS[t] || t;
+          const booked = bookedSlots.has(iso + "|" + t);
+          const inCart = chosenSessions.some(function(x){ return x.date === iso && x.time === t; });
+
+          if (booked) {
+            chip.className = "cal-slot taken";
+            chip.disabled = true;
+            chip.textContent = short + "p";
+            chip.title = t + " \u2014 already booked";
+          } else if (inCart) {
+            chip.className = "cal-slot added";
+            chip.textContent = short + "\u2713";
+            chip.title = t + " \u2014 in your cart, tap to remove";
+            chip.addEventListener('click', function(){ removeSlot(iso, t); });
+          } else {
+            chip.className = "cal-slot";
+            chip.textContent = short + "p+";
+            chip.title = "Add " + t;
+            chip.addEventListener('click', function(){ addSession(iso, t); });
+          }
+          cell.appendChild(chip);
+        });
       }
+
       grid.appendChild(cell);
     }
 
@@ -659,58 +768,41 @@
     renderCalendar();
   }
 
-  function selectDate(iso, cell){
-    activeDate = iso;
-    document.querySelectorAll('.cal-day.selected').forEach(el => el.classList.remove('selected'));
-    cell.classList.add('selected');
-    const d = new Date(iso + "T12:00:00");
-    const label = d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
-    document.getElementById('selected-date-label').textContent = "Selected: " + label;
-    updateTimeOptions();
-  }
-
-  function updateTimeOptions(){
-    const sel = document.getElementById('time-slot');
-    for (const opt of sel.options) {
-      if (!opt.value) continue;
-      const taken = activeDate && (bookedSlots.has(activeDate + "|" + opt.value) || chosenSessions.some(s => s.date === activeDate && s.time === opt.value));
-      opt.disabled = !!taken;
-      opt.textContent = opt.value.replace("–", " – ") + (taken ? " (unavailable)" : "");
-    }
+  function removeSlot(iso, time){
+    const i = chosenSessions.findIndex(function(x){ return x.date === iso && x.time === time; });
+    if (i >= 0) removeSession(i);
   }
 
   /* ---------- Session list ---------- */
-  function addSession(){
+  function addSession(date, time){
     const msg = document.getElementById('form-msg');
-    const time = document.getElementById('time-slot').value;
     msg.textContent = "";
+    if (!date || !time) return;
+    if (chosenSessions.length >= MAX_SESSIONS) { msg.textContent = "That's the maximum of " + MAX_SESSIONS + " sessions per booking."; return; }
+    if (bookedSlots.has(date + "|" + time)) { msg.textContent = "That slot is already booked."; return; }
+    if (chosenSessions.some(s => s.date === date && s.time === time)) return;
 
-    if (!activeDate) { msg.textContent = "Pick a date on the calendar first."; return; }
-    if (!time) { msg.textContent = "Choose a session time."; return; }
-    if (chosenSessions.length >= 4) { msg.textContent = "You've already selected 4 sessions."; return; }
-    if (bookedSlots.has(activeDate + "|" + time)) { msg.textContent = "That slot is already booked."; return; }
-    if (chosenSessions.some(s => s.date === activeDate && s.time === time)) { msg.textContent = "You've already added that slot."; return; }
-
-    chosenSessions.push({ date: activeDate, time });
+    chosenSessions.push({ date: date, time: time });
     chosenSessions.sort((a,b) => (a.date + a.time).localeCompare(b.date + b.time));
-    document.getElementById('time-slot').value = "";
-    renderSessionList();
-    renderCalendar();
-    updateTimeOptions();
+    refreshAll();
   }
 
   function removeSession(i){
     chosenSessions.splice(i, 1);
+    refreshAll();
+  }
+
+  function refreshAll(){
     renderSessionList();
     renderCalendar();
-    updateTimeOptions();
+    refreshPricing();
   }
 
   function renderSessionList(){
     const list = document.getElementById('session-list');
     document.getElementById('session-count').textContent = chosenSessions.length;
     if (chosenSessions.length === 0) {
-      list.innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:0.88rem;">No sessions added yet — pick a date and time above, then tap "Add this session."</div>';
+      list.innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:0.88rem;">Cart is empty — tap + next to a time to add it.</div>';
       return;
     }
     list.innerHTML = chosenSessions.map((s, i) => {
@@ -729,27 +821,43 @@
   const DISCOUNTED_PRICE = 60;
   const DISCOUNT_CODE = "FAMILY15";
 
+  let currentPerSession = SESSION_PRICE;
+
+  /* Billed on the number of sessions in the cart, minimum 4. */
+  function billableCount(){
+    return Math.max(chosenSessions.length, MIN_SESSIONS);
+  }
+
+  function setAmounts(perSession){
+    const n = billableCount();
+    const total = Math.round(perSession * n * 100) / 100;
+    // Only the first two sessions are due at booking; the rest bills as you go.
+    const dueToday = Math.round(perSession * Math.min(2, n) * 100) / 100;
+    const blocks = Math.ceil(n / 2);
+    const totalDisplay = document.getElementById('total-display');
+    const p1 = document.getElementById('payment1-display');
+    const p2 = document.getElementById('payment2-display');
+    if (totalDisplay) totalDisplay.textContent = "$" + total + " over " + blocks + " payment" + (blocks === 1 ? "" : "s");
+    if (p1) p1.textContent = "$" + dueToday;
+    if (p2) p2.textContent = (blocks > 1 ? "\u00d7 " + (blocks - 1) + " more" : "\u2014");
+    const payNow = document.getElementById('pay-now-amount');
+    if (payNow) payNow.textContent = "$" + dueToday;
+  }
+
+  function refreshPricing(){
+    setAmounts(currentPerSession);
+  }
+
   function applyPromo(){
     const input = document.getElementById('promo-input').value.trim().toUpperCase();
     const msg = document.getElementById('promo-msg');
     const priceDisplay = document.getElementById('price-display');
-    const totalDisplay = document.getElementById('total-display');
     const wasPrice = document.getElementById('was-price');
-    const p1 = document.getElementById('payment1-display');
-    const p2 = document.getElementById('payment2-display');
-
-    function setAmounts(perSession){
-      const total = perSession * SESSIONS;
-      const half = total / 2;
-      totalDisplay.textContent = "$" + total;
-      p1.textContent = "$" + half;
-      p2.textContent = "$" + half;
-      document.getElementById('pay-now-amount').textContent = "$" + half;
-    }
 
     if(input === DISCOUNT_CODE){
       priceDisplay.textContent = "$" + DISCOUNTED_PRICE;
       wasPrice.style.display = "inline";
+      currentPerSession = DISCOUNTED_PRICE;
       setAmounts(DISCOUNTED_PRICE);
       document.getElementById('form-promo').value = input;
       msg.textContent = "Code applied — $" + DISCOUNTED_PRICE + "/session locked in.";
@@ -760,6 +868,7 @@
     } else {
       priceDisplay.textContent = "$" + SESSION_PRICE;
       wasPrice.style.display = "none";
+      currentPerSession = SESSION_PRICE;
       setAmounts(SESSION_PRICE);
       msg.textContent = "That code isn't valid.";
       msg.className = "bad";
@@ -767,19 +876,25 @@
   }
 
   /* ---------- Submit → create package → PayPal ---------- */
-  async function submitForm(e){
-    e.preventDefault();
+  async function submitForm(e, paymentMethod){
+    if (e && e.preventDefault) e.preventDefault();
+    paymentMethod = paymentMethod || "paypal";
     const msg = document.getElementById('form-msg');
     const btn = document.getElementById('submit-btn');
     msg.textContent = "";
 
-    if (chosenSessions.length !== 4) {
-      msg.textContent = `Please select all 4 session slots (${chosenSessions.length}/4 chosen).`;
+    if (chosenSessions.length < MIN_SESSIONS) {
+      msg.textContent = `Please add at least ${MIN_SESSIONS} sessions (${chosenSessions.length} in your cart).`;
+      return false;
+    }
+    if (chosenSessions.length > MAX_SESSIONS) {
+      msg.textContent = `Maximum ${MAX_SESSIONS} sessions per booking.`;
       return false;
     }
 
     btn.disabled = true;
-    btn.textContent = "Setting up your booking…";
+    document.getElementById('invoice-btn').disabled = true;
+    btn.textContent = paymentMethod === "invoice" ? "Preparing your invoice…" : "Setting up your booking…";
 
     const pageUrl = window.location.origin + window.location.pathname;
 
@@ -794,6 +909,8 @@
           subject: document.getElementById('subject').value,
           notes: document.getElementById('notes').value,
           discount_code: document.getElementById('form-promo').value,
+          student_email: (document.getElementById('student-email')?.value || '').trim() || undefined,
+          payment_method: paymentMethod,
           sessions: chosenSessions,
           return_url: pageUrl + "?paypal=return",
           cancel_url: pageUrl + "?paypal=cancel",
@@ -809,11 +926,25 @@
           msg.textContent = data.error || "Something went wrong. Please try again.";
         }
         btn.disabled = false;
+        document.getElementById('invoice-btn').disabled = false;
         btn.innerHTML = 'Continue to Payment — <span id="pay-now-amount">$' + (data.payment1_amount ?? 130) + '</span> due today';
         return false;
       }
 
-      if (data.approveUrl) {
+      if (data.mode === "invoice") {
+        msg.className = "ok";
+        msg.textContent = "Booked. Your invoice for $" + Number(data.total_amount).toFixed(2) +
+          " is due " + data.invoice_due_date + ". Your 4 slots are held.";
+        btn.style.display = "none";
+        document.getElementById('invoice-btn').style.display = "none";
+        await loadAvailability();
+      } else if (data.mode === "comped") {
+        msg.className = "ok";
+        msg.textContent = "Booking confirmed at no charge. Confirmation email triggered.";
+        btn.style.display = "none";
+        document.getElementById('invoice-btn').style.display = "none";
+        await loadAvailability();
+      } else if (data.approveUrl) {
         msg.textContent = "Redirecting you to PayPal to complete Payment 1…";
         window.location.href = data.approveUrl;
       } else {
@@ -824,6 +955,7 @@
       console.error(err);
       msg.textContent = "Network error — please check your connection and try again.";
       btn.disabled = false;
+      document.getElementById('invoice-btn').disabled = false;
       btn.textContent = "Continue to Payment";
     }
     return false;
@@ -849,7 +981,7 @@
       });
       const data = await res.json();
       if (res.ok && (data.status === "captured" || data.status === "already_captured")) {
-        banner.innerHTML = "✅ <strong>Payment 1 received — you're booked!</strong><br>Sessions 1 & 2 are confirmed and calendar invites with Google Meet links are on the way. Payment 2 will be charged automatically before session 3.";
+        banner.innerHTML = "✅ <strong>Payment received — you're booked!</strong><br>Sessions 1 & 2 are confirmed and calendar invites with Google Meet links are on the way. Your next $130 is charged after session 2, for sessions 3 & 4.";
         banner.style.borderColor = "#2dd4bf";
       } else {
         banner.textContent = "We couldn't confirm your payment automatically. If you completed payment on PayPal, don't worry — we'll reconcile it and email you. " + (data.error || "");
@@ -862,9 +994,14 @@
     setTimeout(() => banner.remove(), 15000);
   }
 
+  document.getElementById('invoice-btn').addEventListener('click', function(){
+    submitForm(null, "invoice");
+  });
+
   renderDayNames();
   renderCalendar();
   renderSessionList();
+  refreshPricing();
   loadAvailability();
   handlePayPalReturn();
 </script>
