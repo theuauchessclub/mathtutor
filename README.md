@@ -1,63 +1,49 @@
-# Up and Up Educational Services — Tutoring Booking Site
+# Up And Up Educational Services — Virtual Math Tutoring
 
-One-page virtual math tutoring site with live booking, split payments (PayPal), automatic second-payment billing, and Google Calendar + Meet integration.
+Live at **[upandupmath.github.io/upandup-tutoring](https://upandupmath.github.io/upandup-tutoring/)**
 
-## What's already live
+## What this is
 
-The backend is **already deployed** to Supabase project `otdyhyzghaohnhtwzkvu`:
+A booking and tutoring platform for virtual math tutoring, grades 6–10. Parents book 4-session packages, pay through PayPal, and receive Google Calendar invites with Meet links for each session.
 
-| Piece | Status |
+## Pages
+
+| Page | Purpose |
 |---|---|
-| Database tables (`edu_packages`, `edu_sessions`, `edu_config`) | ✅ Deployed |
-| `edu-availability` — returns booked slots so the calendar greys them out | ✅ Deployed & tested |
-| `edu-create-package` — validates the 4 slots, applies discount server-side, creates PayPal order for Payment 1 with card vaulting | ✅ Deployed & tested |
-| `edu-capture-payment` — captures Payment 1, saves the vault token, confirms sessions 1–2, creates Calendar events + Meet links | ✅ Deployed |
-| `edu-charge-second-payment` — auto-charges Payment 2 within 3 days of session 3, confirms sessions 3–4 | ✅ Deployed |
-| Daily cron (12:00 UTC) that runs the auto-charge | ✅ Scheduled |
+| `index.html` | Main site — about, pricing, FAQ, policies, booking form |
+| `placement.html` | Free 30-question placement test (6 grade levels, 5 questions each) |
+| `assessments.html` | Teacher-facing student assessment tool |
+| `confirmed.html` | Post-booking confirmation with dates, Meet links, billing schedule |
+| `privacy.html` | COPPA-aligned privacy policy |
 
-The `supabase/functions/` folder in this repo is a **reference copy** of the deployed code.
+## Backend
 
-## Publish the site (free, via GitHub Pages)
+Supabase edge functions handle booking, payments, email, and calendar integration. The private backend repository contains the deployed source and database schema.
 
-1. Create a new repository on github.com (e.g. `upandup-tutoring`)
-2. Upload `index.html` (drag and drop works on github.com)
-3. Repo → Settings → Pages → Source: "Deploy from a branch" → Branch: `main`, folder `/ (root)` → Save
-4. Your site goes live at `https://<your-username>.github.io/upandup-tutoring/` in a minute or two
+### Key systems
+- **Booking:** 4-session packages, exactly $65/session, billed $130 at a time
+- **Payments:** PayPal with vault for automatic second installment, plus invoice option for Zelle/Cash App
+- **Calendar:** Google Calendar events with Meet links auto-generated on session confirmation
+- **Email:** Tutoring-branded transactional emails (confirmation, invoice, receipt, cancellation)
+- **Availability:** Syncs with personal Google Calendar and blocks DCPS 2026-27 school-off days
+- **Safety nets:** Payment reconciler (5 min), abandoned checkout sweep (15 min), non-payment enforcement (daily)
 
-No build step, no cost.
+### Edge functions
+`edu-create-package` · `edu-capture-payment` · `edu-charge-installments` · `edu-availability` · `edu-booking-status` · `edu-notify-email` · `edu-save-placement` · `edu-create-calendar` · `edu-sync-calendar` · `edu-reconcile-payments` · `edu-check-assessment`
 
-## ⚠️ Before real parents can pay: switch PayPal to LIVE
+### Cron jobs (pg_cron)
+| Job | Schedule | Purpose |
+|---|---|---|
+| `edu-charge-installments-daily` | `0 12 * * *` | Charges due installments |
+| `edu-reconcile-payments` | `*/5 * * * *` | Catches PayPal payments missed by browser |
+| `edu-expire-abandoned-bookings` | `*/15 * * * *` | Releases slots from abandoned checkouts |
+| `edu-enforce-nonpayment` | `30 12 * * *` | Cancels packages with missed payments |
+| `edu-sync-calendar-hourly` | `15 * * * *` | Syncs personal calendar conflicts |
 
-The project's PayPal secrets are currently **sandbox** (test mode). To go live:
+## Development
 
-1. Log into https://developer.paypal.com with your PayPal Business account
-2. Apps & Credentials → toggle **Live** → create (or open) an app → copy the **Client ID** and **Secret**
-3. In Supabase dashboard → Project Settings → Edge Functions → Secrets, update:
-   - `PAYPAL_CLIENT_ID` → your live client ID
-   - `PAYPAL_CLIENT_SECRET` → your live secret
-   - `PAYPAL_BASE_URL` → `https://api-m.paypal.com`
-4. **Vaulting requirement:** the automatic second payment saves the parent's payment method ("vault"). Your live PayPal app must have **Vault / Save payment methods** enabled (Apps & Credentials → your app → Features → check "Vault"). If PayPal requires approval for this feature on your account, request it — it's standard for tutoring/subscription businesses.
+The public repository hosts the GitHub Pages frontend. Backend source lives in a separate private repository. Branch protection requires pull requests for `main`.
 
-## Changing prices or the discount code
+## Contact
 
-Pricing lives in the database (server-side, so nobody can tamper with it from the browser). In Supabase → SQL Editor:
-
-```sql
-update edu_config set value = '65' where key = 'price_per_session';
-update edu_config set value = 'FAMILY15' where key = 'discount_code';
-update edu_config set value = '60' where key = 'discount_price_per_session';
-```
-
-Also update the matching display numbers near the bottom of `index.html` (`SESSION_PRICE`, `DISCOUNTED_PRICE`, `DISCOUNT_CODE`) so the pricing card shows the same values.
-
-## How a booking flows
-
-1. Parent picks 4 weekday slots (4–7 PM), fills the form, submits
-2. `edu-create-package` re-validates everything, reserves the slots, and redirects to PayPal for **Payment 1** (sessions 1 & 2), with the payment method vaulted for later
-3. On return, `edu-capture-payment` captures the money, confirms sessions 1 & 2, and fires your Google Apps Script webhook, which creates the Calendar events with Meet links and emails the parent
-4. Every day at 12:00 UTC, the cron job finds packages whose session 3 is within 3 days and auto-charges **Payment 2** against the vaulted method, then confirms sessions 3 & 4 and creates their calendar events
-5. If a charge fails, the package's `payment2_status` is marked `failed` — check the `edu_packages` table (or Supabase logs) periodically, or ask Claude to build an email alert for failures
-
-## Viewing your bookings
-
-Supabase dashboard → Table Editor → `edu_packages` (one row per family/package) and `edu_sessions` (one row per session). Or ask Claude to build you an admin page.
+Brother Truth · [240.542.8647](tel:2405428647) · [theuauchessclub@gmail.com](mailto:theuauchessclub@gmail.com)
